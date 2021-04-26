@@ -10,6 +10,22 @@ ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 ## Close active application
 hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 
+
+## fast focus desktop
+cmd + alt - x : yabai -m space --focus last
+cmd + alt - z : yabai -m space --focus prev
+cmd + alt - c : yabai -m space --focus next
+hyper - 1 : yabai -m space --focus 1
+hyper - 2 : yabai -m space --focus 2
+hyper - 3 : yabai -m space --focus 3
+hyper - 4 : yabai -m space --focus 4
+hyper - 5 : yabai -m space --focus 5
+hyper - 6 : yabai -m space --focus 6
+hyper - 7 : yabai -m space --focus 7
+hyper - 8 : yabai -m space --focus 8
+hyper - 9 : yabai -m space --focus 9
+hyper - 0 : yabai -m space --focus 10
+
 # test a command
 # lshift - x : terminal-notifier -message "lshift - x"
 #lshift - x : terminal-notifier -message "$(yabai -m query --windows --window | jq -re ".id")"
@@ -45,10 +61,10 @@ ctrl + cmd - 3 : yabai -m window --display 3 yabai -m display --focus 3
 #shift + cmd - d : yabai -m window --resize right:-20:0
 
 ## rotate tree 90
-hyper - r : yabai -m space --rotate 90
+# hyper - r : yabai -m space --rotate 90
 
 ## flip the tree vertically
-hyper - 4 : yabai -m space --mirror y-axis
+hyper - r : yabai -m space --mirror y-axis
 # mirror tree y-axis
 #alt - y : yabai -m space --mirror y-axis
 ## mirror tree x-axis
@@ -127,21 +143,6 @@ ctrl + alt + cmd + lshift - 0x43 : window=$(yabai -m query --windows --window | 
 
 ## destroy desktop
 #cmd + alt - w : yabai -m space --destroy
-
-## fast focus desktop
-#cmd + alt - x : yabai -m space --focus last
-#cmd + alt - z : yabai -m space --focus prev
-#cmd + alt - c : yabai -m space --focus next
-#cmd + alt - 1 : yabai -m space --focus 1
-#cmd + alt - 2 : yabai -m space --focus 2
-#cmd + alt - 3 : yabai -m space --focus 3
-#cmd + alt - 4 : yabai -m space --focus 4
-#cmd + alt - 5 : yabai -m space --focus 5
-#cmd + alt - 6 : yabai -m space --focus 6
-#cmd + alt - 7 : yabai -m space --focus 7
-#cmd + alt - 8 : yabai -m space --focus 8
-#cmd + alt - 9 : yabai -m space --focus 9
-#cmd + alt - 0 : yabai -m space --focus 10
 
 ## move window
 #shift + ctrl - a : yabai -m window --move rel:-20:0
