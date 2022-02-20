@@ -1,5 +1,6 @@
 " hello front end masters
 set path+=**
+set rtp+=~/.vim/plugged/nerdtree
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
 set wildmenu
@@ -34,8 +35,8 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
 call plug#begin('~/.vim/plugged')
-
-Plug 'git@github.com:jiangmiao/auto-paris'
+Plug 'preservim/nerdtree'
+Plug 'git@github.com:jiangmiao/auto-pairs'
 
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
@@ -111,8 +112,8 @@ Plug 'mhinz/vim-rfc'
 " prettier
 Plug 'sbdchd/neoformat'
 
-" should I try another status bar???
-"  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+" should I try another status bar??
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Plug 'hoob3rt/lualine.nvim'
 
 call plug#end()
@@ -152,13 +153,19 @@ filetype plugin indent on
 " greatest remap ever
 xnoremap <leader>p "_dP
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
+
+nnoremap <leader>pw :lua require('telescope.builtin').grep_string {search = vim.fn.expand("<cword>")}<CR>
+nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 
 " YCM Remaps
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 
 nnoremap <silent> <Leader>cp :CtrlP<CR>
-nnoremap <silent> <C-s> :Files<CR>
+" nnoremap <silent> <C-s> :GFiles<CR>
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
@@ -214,4 +221,3 @@ augroup THE_PRIMEAGEN
 augroup END
 
 colorscheme gruvbox
-                                                                                                                                                                                                                      1,1            Top
